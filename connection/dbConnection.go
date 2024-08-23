@@ -9,7 +9,7 @@ import (
 
 var DB *gorm.DB
 
-const DSN = "root:mmPcIItbZImkXfBqVTUHknYepukLJNXn@tcp(junction.proxy.rlwy.net:59680)/railway?charset=utf8mb4&parseTime=True&loc=Local"
+const DSN = "root:mmPcIItbZImkXfBqVTUHknYepukLJNXn@tcp(junction.proxy.rlwy.net:36199)/railway?charset=utf8mb4&parseTime=True&loc=Local"
 
 func ConnectionDB() {
 	var err error
