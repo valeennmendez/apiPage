@@ -49,7 +49,6 @@ func main() {
 		protected.GET("/total-patients", routes.TotalPatientsData)
 		protected.POST("/create-appointment", routes.CreateAppoinment)
 		protected.GET("/appointment-today", routes.AppointmentToday)
-		protected.GET("/available-hours", routes.GetAviableHours)
 		protected.GET("/search-patient", routes.SearchPatient)
 		protected.GET("/appointments", routes.GetAllAppointments)
 		protected.GET("/appointments-week", routes.AppointmentWeek)
@@ -59,6 +58,7 @@ func main() {
 
 	}
 
+	r.GET("/available-hours", routes.GetAviableHours)
 	r.DELETE("/cancel-appointment/:id", routes.CancelAppointment) // <--- DEBE ESTAR PUBLICA SI O SI.
 
 	// Ruta raíz
