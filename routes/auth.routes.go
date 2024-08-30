@@ -113,7 +113,7 @@ func Login(c *gin.Context) {
 		MaxAge:   0,
 		HttpOnly: true,
 		Secure:   true,
-		SameSite: http.SameSiteNoneMode,
+		SameSite: http.SameSiteLaxMode,
 	}
 
 	err := session.Save(c.Request, c.Writer)
