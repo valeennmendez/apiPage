@@ -1,7 +1,7 @@
-package main
-
 import (
+	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -67,5 +67,13 @@ func main() {
 		})
 	})
 
-	r.Run(":8080")
+	// Obtener el puerto desde la variable de entorno, o usar 8080 como valor por defecto
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	// Iniciar el servidor en el puerto especificado
+	r.Run(":" + port)
 }
+
