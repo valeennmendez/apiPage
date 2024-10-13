@@ -20,7 +20,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://codepages.onrender.com"},
+		AllowOrigins:     []string{"http://127.0.0.1:3000"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		AllowCredentials: true,
@@ -49,7 +49,7 @@ func main() {
 		protected.GET("/total-patients", routes.TotalPatientsData)
 		protected.POST("/create-appointment", routes.CreateAppoinment)
 		protected.GET("/appointment-today", routes.AppointmentToday)
-		
+		protected.GET("/available-hours", routes.GetAviableHours)
 		protected.GET("/appointments", routes.GetAllAppointments)
 		protected.GET("/appointments-week", routes.AppointmentWeek)
 		protected.POST("/approve-user/:id", routes.ApproveUser)
@@ -58,7 +58,6 @@ func main() {
 
 	}
 	r.GET("/search-patient", routes.SearchPatient)
-	r.GET("/available-hours", routes.GetAviableHours)
 	r.DELETE("/cancel-appointment/:id", routes.CancelAppointment) // <--- DEBE ESTAR PUBLICA SI O SI.
 
 	// Ruta raíz
