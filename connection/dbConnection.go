@@ -2,26 +2,31 @@ package connection
 
 import (
 	"fmt"
-
-	//"gorm.io/driver/mysql"
+	"os"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
-// const DSN = "root:@tcp(127.0.0.1:3306)/Acneclinic?charset=utf8mb4&parseTime=True&loc=UTC"
-const DSN = "postgresql://postgres.vfbshxvqidlrawostjvn:Repeatrave10_@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
-
 func ConnectionDB() {
+	// Leer las variables de entorno
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	dbname := os.Getenv("DB_NAME")
+
+	// Construir el DSN
+	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s?sslmode=require", user, password, host, port, dbname)
+
+	// Abrir la conexión con GORM
 	var err error
-	DB, err = gorm.Open(postgres.Open(DSN), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Println("Base de Datos corriendo...")
-
 }
- 
