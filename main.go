@@ -3,8 +3,8 @@ package main
 
 import (
 	"net/http"
-	"os"
-	"fmt"
+	//"os"
+	//"fmt"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/valeennmendez/api-go/connection"
@@ -69,7 +69,7 @@ func main() {
 		})
 	})
 
-	port := os.Getenv("PORT")
+/* 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080" // Para desarrollo local
 	}
@@ -77,6 +77,8 @@ func main() {
 	// Iniciar el servidor en 0.0.0.0 en el puerto especificado
 	if err := r.Run("0.0.0.0:" + port); err != nil {
 		fmt.Println("Error al iniciar el servidor:", err)
-	}
+	} */
+
+	r.Run("0.0.0.0:8080")
 }
 
