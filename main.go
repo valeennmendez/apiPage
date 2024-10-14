@@ -3,7 +3,7 @@ package main
 
 import (
 	"net/http"
-	//"os"
+	"os"
 	//"fmt"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -69,8 +69,8 @@ func main() {
 		})
 	})
 
-/* 	port := os.Getenv("PORT")
-	if port == "" {
+ 	port := os.Getenv("PORT")
+/*	if port == "" {
 		port = "8080" // Para desarrollo local
 	}
 
@@ -79,6 +79,6 @@ func main() {
 		fmt.Println("Error al iniciar el servidor:", err)
 	} */
 
-	r.Run("0.0.0.0:8080")
+	r.Run(port)
 }
 
