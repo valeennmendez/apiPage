@@ -73,11 +73,7 @@ func main() {
 	if port == "" {
 		port = "8080" // Para desarrollo local
 	}
-
-	// Iniciar el servidor en 0.0.0.0 en el puerto especificado
-	if err := r.Run("0.0.0.0:" + port); err != nil {
-		fmt.Println("Error al iniciar el servidor:", err)
-	} */
+*/
 
 	r.Run(":8080")
 }
