@@ -69,13 +69,14 @@ func main() {
 		})
 	})
 
-	// Obtener el puerto desde la variable de entorno, o usar 8080 como valor por defecto
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "8080" // Para desarrollo local
 	}
 
-	// Iniciar el servidor en el puerto especificado
-	r.Run(":" + port)
+	// Iniciar el servidor en 0.0.0.0 en el puerto especificado
+	if err := r.Run("0.0.0.0:" + port); err != nil {
+		fmt.Println("Error al iniciar el servidor:", err)
+	}
 }
 
