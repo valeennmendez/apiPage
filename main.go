@@ -62,7 +62,7 @@ func main() {
 	r.GET("/search-patient", routes.SearchPatient)
 	r.DELETE("/cancel-appointment/:id", routes.CancelAppointment) // <--- DEBE ESTAR PUBLICA SI O SI.
 
-	// Ruta raíz
+
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusAccepted, gin.H{
 			"message": "Corriendo",
